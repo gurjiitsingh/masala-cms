@@ -25,12 +25,14 @@ transporter.verify((error, success) => {
 });
 
   try {
-    await transporter.sendMail({
-      from: `"Masala GF" <${process.env.BREVO_USER}>`,
+  const info =  await transporter.sendMail({
+     from: `"Masala GF" <${process.env.BREVO_USER}>`,
       to,
       subject,
       text: message,
     });
+
+    console.log("info---------", info)
 
     return new Response(JSON.stringify({ success: true }));
   } catch (err) {

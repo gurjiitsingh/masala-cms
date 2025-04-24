@@ -4,7 +4,7 @@ export default function Page() {
     
 async function handleSendEmail(){
   console.log("email button clicked")
-    await fetch('/api/send-email-brevo', {
+  const info =  await fetch('/api/send-email-brevo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -13,6 +13,7 @@ async function handleSendEmail(){
           message: 'We have received your order and are preparing it!',
         }),
       });
+      console.log("respnonse-----------", info)
 }
 
 
