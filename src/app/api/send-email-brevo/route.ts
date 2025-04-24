@@ -30,6 +30,12 @@ transporter.verify((error, success) => {
       to,
       subject,
       text: message,
+    }, (error, info) => {
+      if (error) {
+        console.log('Error occurred:', error);
+      } else {
+        console.log('Message sent:', info.response);
+      }
     });
 
     console.log("info---------", info)
