@@ -4,7 +4,7 @@ export async function POST(req: Request) {
   const { to, subject, message } = await req.json();
 // secrit key
   // 
-console.log("email info-------------",  to, subject, message)
+console.log("email info-------------",  to, subject, message,process.env.BREVO_HOST,process.env.BREVO_USER,process.env.BREVO_PASS)
   const transporter = nodemailer.createTransport({
     host: process.env.BREVO_HOST,
     port: 587,
@@ -16,7 +16,7 @@ console.log("email info-------------",  to, subject, message)
 
   try {
     await transporter.sendMail({
-      from: '"Masala GF" <your-brevo-email@example.com>',
+      from: `"Masala GF" ${process.env.BREVO_USER}`,
       to,
       subject,
       text: message,
