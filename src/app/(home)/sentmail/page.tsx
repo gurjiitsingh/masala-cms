@@ -3,6 +3,7 @@
 export default function Page() {
     
 async function handleSendEmail(){
+  console.log("email button clicked")
     await fetch('/api/send-email-brevo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

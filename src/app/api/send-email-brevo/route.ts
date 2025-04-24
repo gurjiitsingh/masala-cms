@@ -4,7 +4,7 @@ export async function POST(req: Request) {
   const { to, subject, message } = await req.json();
 // secrit key
   // 
-
+console.log("email info-------------",  to, subject, message)
   const transporter = nodemailer.createTransport({
     host: process.env.BREVO_HOST,
     port: 587,
